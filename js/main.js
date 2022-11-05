@@ -34,8 +34,6 @@ while (nombreDeUsuarioConfirm != nombreDeUsuario || contraseñaConfirm != contra
 
 alert("BIENVENIDO")
 
-alert("REALICE SU COMPRA")
-
 //Productos de compra
 function productosDeCompra() { 
     let productoSeleccionado
@@ -63,51 +61,106 @@ function productosDeCompra() {
 
 productosDeCompra()*/
 
-function productosFun(nombre, tipo, precio) {
+
+function productos(nombre, tipo, precio) {
     this.nombre = nombre;
     this.tipo = tipo;
     this.precio = precio;
 }
 
-let accesorio1 = new productosFun("Set de manopla", "Accesorio", 4500)
-let accesorio2 = new productosFun("Almohada", "Accesorio", 4600)
-let mantel1 = new productosFun("Mantel estampado", "Mantel", 5200)
-let mantel2 = new productosFun("Mantel liso", "Mantel", 5500)
-let acolchado1 = new productosFun("Acolchado de estacion", "Acolchado", 10500)
-let acolchado2 = new productosFun("Acolchado liso", "Acolchado", 15600)
-let alfombra1 = new productosFun("Alfombra suave", "Alfombra", 6500)
-let alfombra2 = new productosFun("Alfombra lisa", "Alfombra", 5600)
+
 
 const arrayProductos = [
-    accesorio1,
-    accesorio2,
-    mantel1,
-    mantel2,
-    acolchado1,
-    acolchado2,
-    alfombra1,
-    alfombra2,
+    accesorio1 = new productos("Set de manoplas", "Accesorio", 4500),
+    accesorio2 = new productos("Almohada", "Accesorio", 4600),
+    mantel1 = new productos("Mantel estampado", "Mantel", 5200),
+    mantel2 = new productos("Mantel liso", "Mantel", 5500),
+    acolchado1 = new productos("Acolchado de estación", "Acolchado", 10500),
+    acolchado2 = new productos("Acolchado liso", "Acolchado", 15600),
+    alfombra1 = new productos("Alfombra suave", "Alfombra", 6500),
+    alfombra2 = new productos("Alfombra lisa", "Alfombra", 5600),
 ]
 
 let carritoVacio = []
 
+let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLocaleLowerCase()
 
-if (confirm("¿Desea comprar algun producto?")) {
-    let mostrarArray = arrayProductos.map((productosFun) => productosFun.nombre + " " + "$" + productosFun.precio)
-    alert("Eliga el producto")
-    let producto = prompt(mostrarArray.join(" -- "))
-    let cantidad = parseInt(prompt("¿Cuantos quiere llevar?"))
-    if (producto == arrayProductos) { carritoVacio.push(productosFun.producto, productosFun.precio, cantidad) }
-    console.log(carritoVacio)
-} else { alert("Gracias por vicitarnos") }
+while (confirmacion != "si" && confirmacion != "no") {
+    alert("Gracias por vicitarnos")
+    let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLowerCase()
+}
+
+if (confirmacion == "si") {
+    alert("Seleccione un artículo")
+    let mostrarProductos = arrayProductos.map((producto) => "Nombre: " + producto.nombre + " , " + "Precio: " + "$" + producto.precio)
+    alert(mostrarProductos.join("---"))
+} else if (confirmacion == "no") {
+    alert("Gracias por vicitarnos")
+}
+
+while (confirmacion != "no") {
+    let producto = prompt("Esciba el nombre del producto que desea comprar")
+    let precio = 0
+    if (producto == "Set de Manoplas" || producto == "Almohada" || producto == "Mantel Estampado" || producto == "Mantel liso" || producto == "Acolchado de estación" || producto == "Acolchado liso" || producto == "Alfombra suave" || producto == "Alfombra lisa") {
+        switch (producto) {
+            case "Set de Manoplas":
+                precio = 4500;
+                break;
+
+            case "Almohada":
+                precio = 4600;
+                break;
+
+            case "Mantel Estampado":
+                precio = 5200;
+                break;
+
+            case "Mantel liso":
+                precio = 5500;
+                break;
+
+            case "Acolchado de estación":
+                precio = 10500;
+                break;
+
+            case "Acolchado liso":
+                precio = 15600;
+                break;
+
+            case "Alfombra suave":
+                precio = 6500;
+                break;
+
+            case "Alfombra lisa":
+                precio = 5600;
+                break;
+            default:
+                break;
+        }
+        carritoVacio.push({ producto, precio })
+        console.log(carritoVacio)
+    }
+    confirmacion = prompt("¿Quiere seleccionar otro producto? Ingrese SI o NO").toLocaleLowerCase()
+    while (confirmacion == "no") {
+        alert("Muchas gracias, vuelva pronto")
+        carritoVacio.forEach((carrito) => { console.log(`Nombre del producto: ${carrito.producto},Precio final: $ ${carrito.precio}`) })
+        break
+    }
+}
+
+
+//let mostrarArray = arrayProductos.map((producto) => producto.nombre + " " + "$" + producto.precio)
+//alert("Eliga el producto")
+//let producto = prompt(mostrarArray.join(" -- "))
 
 
 
 
+//arrayProductos.forEach((producto) => {
+  //  console.log(producto.nombre, producto.precio)
+//})
 
-
-
-
+//console.log(arrayProductos)
 
 
 
