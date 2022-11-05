@@ -32,34 +32,7 @@ while (nombreDeUsuarioConfirm != nombreDeUsuario || contraseñaConfirm != contra
     contraseñaConfirm = prompt("Ingrese su contraseña para confirmar");
 }
 
-alert("BIENVENIDO")
-
-//Productos de compra
-function productosDeCompra() { 
-    let productoSeleccionado
-    while (productoSeleccionado != "Almohada" && productoSeleccionado != "Mantel estampado" && productoSeleccionado != "Mantel liso" && productoSeleccionado != "Acolchado") {
-        productoSeleccionado = prompt("Seleccione un producto: Almohada, Mantel estampado, Mantel liso, Acolchado")
-        switch (productoSeleccionado) {
-            case "Almohada":
-                alert("Usted compró: Almohada")
-                break;
-            case "Mantel estampado":
-                alert("Usted compró: Mantel estampado")
-                break;
-            case "Mantel liso":
-                alert("usted compró: Mantel liso")
-                break;
-            case "Acolchado":
-                alert("Usted compró: Acolchado")
-                break;
-            default:
-                alert("El producto seleccionado no está disponible")
-                break;
-        }
-    }
-}
-
-productosDeCompra()*/
+alert("BIENVENIDO")*/
 
 
 function productos(nombre, tipo, precio) {
@@ -86,7 +59,7 @@ let carritoVacio = []
 let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLocaleLowerCase()
 
 while (confirmacion != "si" && confirmacion != "no") {
-    alert("Gracias por vicitarnos")
+    alert("Gracias por visitarnos")
     let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLowerCase()
 }
 
@@ -95,7 +68,7 @@ if (confirmacion == "si") {
     let mostrarProductos = arrayProductos.map((producto) => "Nombre: " + producto.nombre + " , " + "Precio: " + "$" + producto.precio)
     alert(mostrarProductos.join("---"))
 } else if (confirmacion == "no") {
-    alert("Gracias por vicitarnos")
+    alert("Gracias por visitarnos")
 }
 
 while (confirmacion != "no") {
@@ -141,6 +114,10 @@ while (confirmacion != "no") {
         console.log(carritoVacio)
     }
     confirmacion = prompt("¿Quiere seleccionar otro producto? Ingrese SI o NO").toLocaleLowerCase()
+
+    let cuaotas = prompt("Eliga una forma de pago: Contado 0% de interes, 3 cuotas 5% de interes, 6 cuaotas 10% de interes")
+
+
     while (confirmacion == "no") {
         alert("Muchas gracias, vuelva pronto")
         carritoVacio.forEach((carrito) => { console.log(`Nombre del producto: ${carrito.producto},Precio final: $ ${carrito.precio}`) })
@@ -149,24 +126,11 @@ while (confirmacion != "no") {
 }
 
 
-//let mostrarArray = arrayProductos.map((producto) => producto.nombre + " " + "$" + producto.precio)
-//alert("Eliga el producto")
-//let producto = prompt(mostrarArray.join(" -- "))
+function cuaotas(numero, porcentaje) {
+    return numero * porcentaje / 100 + numero
+}
 
-
-
-
-//arrayProductos.forEach((producto) => {
-  //  console.log(producto.nombre, producto.precio)
-//})
-
-//console.log(arrayProductos)
-
-
-
-//alert("GRACIAS POR SU COMPRA")
-
-
+console.log(cuaotas(4600, 5))
 
 
 
