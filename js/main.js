@@ -6,7 +6,7 @@ let nombreDeUsuarioConfirm
 let contraseñaConfirm
 
 //Registro de usuario
-/*function nombreUsuario() {
+function nombreUsuario() {
     nombreDeUsuario = prompt("Registre su nombre de usuario");
     contraseña = prompt("Registre su contraseña");
 }
@@ -32,7 +32,7 @@ while (nombreDeUsuarioConfirm != nombreDeUsuario || contraseñaConfirm != contra
     contraseñaConfirm = prompt("Ingrese su contraseña para confirmar");
 }
 
-alert("BIENVENIDO")*/
+alert("BIENVENIDO")
 
 
 function productos(nombre, tipo, precio) {
@@ -56,11 +56,11 @@ const arrayProductos = [
 
 let carritoVacio = []
 
-let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLocaleLowerCase()
+let confirmacion = prompt("¿Desea comprar algún producto? Ingrese SI o NO").toLowerCase()
 
 while (confirmacion != "si" && confirmacion != "no") {
     alert("Gracias por visitarnos")
-    let confirmacion = prompt("¿Desea comprar algun producto? Ingrese SI o NO").toLowerCase()
+    let confirmacion = prompt("¿Desea comprar algún producto? Ingrese SI o NO").toLowerCase()
 }
 
 if (confirmacion == "si") {
@@ -72,7 +72,7 @@ if (confirmacion == "si") {
 }
 
 while (confirmacion != "no") {
-    let producto = prompt("Esciba el nombre del producto que desea comprar")
+    let producto = prompt("Escriba el nombre del producto que desea comprar")
     let precio = 0
     if (producto == "Set de Manoplas" || producto == "Almohada" || producto == "Mantel Estampado" || producto == "Mantel liso" || producto == "Acolchado de estación" || producto == "Acolchado liso" || producto == "Alfombra suave" || producto == "Alfombra lisa") {
         switch (producto) {
@@ -110,12 +110,16 @@ while (confirmacion != "no") {
             default:
                 break;
         }
-        carritoVacio.push({ producto, precio })
+
+
+        carritoVacio.push({ producto, precio, })
         console.log(carritoVacio)
+
+    } else {
+        alert("Ese producto no está disponible")
     }
     confirmacion = prompt("¿Quiere seleccionar otro producto? Ingrese SI o NO").toLocaleLowerCase()
 
-    let cuaotas = prompt("Eliga una forma de pago: Contado 0% de interes, 3 cuotas 5% de interes, 6 cuaotas 10% de interes")
 
 
     while (confirmacion == "no") {
@@ -124,13 +128,6 @@ while (confirmacion != "no") {
         break
     }
 }
-
-
-function cuaotas(numero, porcentaje) {
-    return numero * porcentaje / 100 + numero
-}
-
-console.log(cuaotas(4600, 5))
-
-
+const precioTotalDeProductos = carritoVacio.reduce((acc, el) => acc + el.precio + 0)
+alert("El precio final de su compra es de: " + precioTotalDeProductos)
 
